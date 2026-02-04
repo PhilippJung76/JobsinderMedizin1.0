@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import {
   Search,
   Stethoscope,
@@ -37,31 +38,31 @@ export default function HomePage() {
       <section className="bg-gradient-to-b from-secondary to-background pb-20 pt-20 md:pb-28 md:pt-24">
         <div className="container">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="relative inline-block">
-              <span className="absolute -right-20 -top-2 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground md:-right-24 md:-top-3 md:px-4 md:py-1.5 md:text-sm">
-                Betaversion
-              </span>
-              <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-                Weil Ihre Arbeit mehr ist als ein Job.
-              </h1>
-            </div>
-            <p className="mb-4 text-xl text-foreground md:text-2xl">
-              Finden Sie eine Stelle im Gesundheitswesen, die zu Ihrem Leben passt.
-            </p>
-            <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground">
-              Sie kümmern sich jeden Tag um andere Menschen.
-              <br />
-              Wir helfen Ihnen, einen Arbeitgeber zu finden, der Ihre Leistung{" "}
-              <strong className="text-foreground">sieht</strong>,{" "}
-              <strong className="text-foreground">respektiert</strong> und{" "}
-              <strong className="text-foreground">wertschätzt</strong>.
-            </p>
-            <Button asChild size="lg" className="text-lg px-8 py-6">
-              <Link href="/jobs">
-                <Search className="mr-2 h-5 w-5" />
-                Jobs durchsuchen
-              </Link>
-            </Button>
+              <div className="relative inline-block">
+                <span className="absolute -right-20 -top-2 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground md:-right-24 md:-top-3 md:px-4 md:py-1.5 md:text-sm">
+                  Betaversion
+                </span>
+                <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
+                  Weil Ihre Arbeit mehr ist als ein Job.
+                </h1>
+              </div>
+              <p className="mb-4 text-xl text-foreground md:text-2xl">
+                Finden Sie eine Stelle im Gesundheitswesen, die zu Ihrem Leben passt.
+              </p>
+              <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground">
+                Sie kümmern sich jeden Tag um andere Menschen.
+                <br />
+                Wir helfen Ihnen, einen Arbeitgeber zu finden, der Ihre Leistung{" "}
+                <strong className="text-foreground">sieht</strong>,{" "}
+                <strong className="text-foreground">respektiert</strong> und{" "}
+                <strong className="text-foreground">wertschätzt</strong>.
+              </p>
+              <Button asChild size="lg" className="text-lg px-8 py-6">
+                <Link href="/jobs">
+                  <Search className="mr-2 h-5 w-5" />
+                  Jobs durchsuchen
+                </Link>
+              </Button>
           </div>
         </div>
       </section>
@@ -245,15 +246,18 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              {workplaceFeatures.map((feature) => (
-                <div
-                  key={feature.label}
-                  className="flex items-center gap-2 rounded-full bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm"
-                >
-                  <feature.icon className="h-4 w-4 text-primary" />
-                  {feature.label}
-                </div>
-              ))}
+              {workplaceFeatures.map((feature) => {
+                const IconComponent = feature.icon
+                return (
+                  <div
+                    key={feature.label}
+                    className="flex items-center gap-2 rounded-full bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm"
+                  >
+                    <IconComponent className="h-4 w-4 text-primary" />
+                    {feature.label}
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
