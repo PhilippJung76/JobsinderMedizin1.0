@@ -37,19 +37,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-secondary to-background pb-20 pt-20 md:pb-28 md:pt-24">
         <div className="container">
-          <div className="flex items-start justify-center gap-8">
-            {/* Badge on the left */}
-            <div className="hidden shrink-0 md:block">
-              <Image
-                src="/images/geprufte-arbeitgeber.png"
-                alt="Geprüfte Arbeitgeber"
-                width={150}
-                height={180}
-                className="h-auto w-32 lg:w-40"
-              />
-            </div>
-
-            <div className="max-w-3xl text-center">
+          <div className="mx-auto max-w-4xl text-center">
               <div className="relative inline-block">
                 <span className="absolute -right-20 -top-2 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground md:-right-24 md:-top-3 md:px-4 md:py-1.5 md:text-sm">
                   Betaversion
@@ -75,7 +63,6 @@ export default function HomePage() {
                   Jobs durchsuchen
                 </Link>
               </Button>
-            </div>
           </div>
         </div>
       </section>
