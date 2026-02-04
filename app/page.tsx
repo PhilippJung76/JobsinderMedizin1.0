@@ -259,15 +259,18 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              {workplaceFeatures.map((feature) => (
-                <div
-                  key={feature.label}
-                  className="flex items-center gap-2 rounded-full bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm"
-                >
-                  {feature.icon({ className: "h-4 w-4 text-primary" })}
-                  {feature.label}
-                </div>
-              ))}
+              {workplaceFeatures.map((feature) => {
+                const IconComponent = feature.icon
+                return (
+                  <div
+                    key={feature.label}
+                    className="flex items-center gap-2 rounded-full bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm"
+                  >
+                    <IconComponent className="h-4 w-4 text-primary" />
+                    {feature.label}
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
