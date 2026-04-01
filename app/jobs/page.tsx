@@ -73,6 +73,14 @@ export default function JobsPage() {
             </p>
           </div>
 
+          {/* Sample Notice */}
+          <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4">
+            <p className="text-sm font-medium text-amber-800">
+              Hinweis: Die folgenden Stellenangebote sind Musteranzeigen zur Veranschaulichung. 
+              Echte Stellenangebote werden nach Freigabe hier angezeigt.
+            </p>
+          </div>
+
           {/* Category Filter */}
           <div className="mb-8 flex flex-wrap gap-2">
             <Button
