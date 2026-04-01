@@ -277,6 +277,11 @@ export default function HomePage() {
               sondern <strong className="text-foreground">wirken</strong> können.
             </p>
           </div>
+          <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-center">
+            <p className="text-sm font-medium text-amber-800">
+              Hinweis: Die folgenden Stellenangebote sind Musteranzeigen zur Veranschaulichung.
+            </p>
+          </div>
           <div className="grid gap-6">
             {featuredJobs.map((job) => (
               <JobCard key={job.id} job={job} />
@@ -301,6 +306,11 @@ export default function HomePage() {
               Die neuesten Positionen aus Medizin, Pflege und Gesundheitswesen –
               <br />
               übersichtlich, transparent und ohne unnötige Hürden.
+            </p>
+          </div>
+          <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-center">
+            <p className="text-sm font-medium text-amber-800">
+              Hinweis: Die folgenden Stellenangebote sind Musteranzeigen zur Veranschaulichung.
             </p>
           </div>
           <div className="grid gap-6">
