@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { JOB_CATEGORIES, getCategoryLabel, type JobCategory } from "@/lib/jobs-data"
+import { JOB_CATEGORIES, getCategoryLabel, type JobCategory, jobs as sampleJobs } from "@/lib/jobs-data"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -146,11 +146,51 @@ export default function JobsPage() {
                 </Card>
               ))}
               {filteredJobs.length === 0 && (
-                <div className="rounded-lg border border-dashed p-12 text-center">
-                  <p className="text-muted-foreground">
-                    Keine Stellenangebote in dieser Kategorie gefunden.
-                  </p>
-                </div>
+                <>
+                  {/* Show sample jobs when no real jobs exist */}
+                  {sampleJobs
+                    .filter((job) => selectedCategory === "all" || job.category === selectedCategory)
+                    .map((job) => (
+                      <Card key={job.id} className="transition-shadow hover:shadow-md opacity-80">
+                        <CardContent className="p-6">
+                          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                            <div className="flex-1">
+                              <div className="mb-1 flex items-center gap-2">
+                                <Badge variant="outline" className="text-xs font-medium text-primary border-primary/30">
+                                  {getCategoryLabel(job.category)}
+                                </Badge>
+                                <Badge variant="secondary" className="text-xs">
+                                  Musteranzeige
+                                </Badge>
+                              </div>
+                              <h3 className="mb-2 text-lg font-semibold text-foreground">{job.title}</h3>
+                              <div className="mb-3 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                                <span className="flex items-center gap-1">
+                                  <Building2 className="h-4 w-4" />
+                                  {job.company}
+                                </span>
+                                <span className="flex items-center gap-1">
+                                  <MapPin className="h-4 w-4" />
+                                  {job.location}
+                                </span>
+                                <span className="flex items-center gap-1">
+                                  <Clock className="h-4 w-4" />
+                                  {job.type}
+                                </span>
+                                {job.salary && (
+                                  <span className="flex items-center gap-1">
+                                    <Banknote className="h-4 w-4" />
+                                    {job.salary}
+                                  </span>
+                                )}
+                              </div>
+                              <p className="text-sm text-muted-foreground line-clamp-2">{job.description}</p>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                </>
               )}
             </div>
           )}
