@@ -1,0 +1,46 @@
+# OmniRoute Configuration for JobsinderMedizin 1.0
+# This configuration enables AI routing with auto-fallback capabilities
+
+server:
+  port: 3030
+  host: localhost
+  environment: development
+
+# LLM Provider Configuration
+providers:
+  # Add your provider configurations here
+  # Example: OpenAI, Anthropic, etc.
+  default:
+    type: openai
+    timeout: 30000
+
+# Routing and Fallback Strategy
+routing:
+  # Smart routing with automatic fallback
+  strategy: round_robin
+  fallback_enabled: true
+  max_retries: 3
+  retry_delay: 1000
+
+# API Key Management
+auth:
+  api_key_env: OMNIROUTE_API_KEY
+  require_auth: false
+
+# Logging Configuration
+logging:
+  level: info
+  format: json
+  output: stdout
+
+# Cache Configuration
+cache:
+  enabled: true
+  type: memory
+  ttl: 3600
+
+# Feature Flags
+features:
+  compression: true
+  telemetry: true
+  audit_logs: true
